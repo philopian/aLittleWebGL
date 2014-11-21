@@ -14,7 +14,7 @@ var example = (function(){
 
 
 	var scene 		= new THREE.Scene();
-	var renderer 	= new THREE.WebGLRenderer();
+	var renderer 	= window.WebGLRenderingContext ? new THREE.WebGLRenderer() : new THREE.CanvasRenderer(); // try to use webgl but if your browser doesn't support to fall back to canvas
 	var light		= new THREE.AmbientLight(0xffffff);
 	var camera, box;
 
