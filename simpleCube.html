@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+
+<div id="webgl-container"></div>
+
+<script type="text/javascript" src="bower_components/three.js/three.min.js"></script>
+<script type="text/javascript">
+var example = (function(){
+	"use strict";
+
+
+	var scene 		= new THREE.Scene();
+	var renderer 	= new THREE.WebGLRenderer();
+	var light		= new THREE.AmbientLight(0xffffff);
+	var camera, box;
+
+	function initScene(){
+		renderer.setSize(window.innerWidth, window.innerHeight); // tells the renders what size to be (we are making it the entire window size)
+		document.getElementByID("webgl-container").appendChild(renderer.domElement); //add it to the div
+
+		// add light
+		scene.add(light);
+
+		// add camera
+		camera = new THREE.PerspectiveCamera(35,window.innerWidth/window.innerHeight,1,1000);//add a camera
+		camera.position.z = 100
+		scene.add(camera);
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+})();
+
+</script>
+</body>
+</html>
