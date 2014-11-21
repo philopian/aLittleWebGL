@@ -20,7 +20,7 @@ var example = (function(){
 
 	function initScene(){
 		renderer.setSize(window.innerWidth, window.innerHeight); // tells the renders what size to be (we are making it the entire window size)
-		document.getElementByID("webgl-container").appendChild(renderer.domElement); //add it to the div
+		document.getElementById("webgl-container").appendChild(renderer.domElement); //add it to the div
 
 		// add light
 		scene.add(light);
@@ -39,8 +39,15 @@ var example = (function(){
 		box.name = "box";
 		scene.add(box);
 
-
+		render();
 	}
+
+	function render(){
+		renderer.render(scene,camera);
+		requestAnimationFrame(render);
+	}
+
+	window.onload = initScene;
 
 
 
